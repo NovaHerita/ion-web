@@ -1,0 +1,1 @@
+- [Arousal-Performance Curve layout](project_arousal_curve.md) — architecture and overlap fixes for the Yerkes-Dodson canvas component

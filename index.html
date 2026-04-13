@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ION — Integrative Opus Neuroscience</title>
+    <meta name="description" content="ION offers advanced neurofeedback and biofeedback for nervous system regulation. Evidence-informed neurotechnology for emotional stability, cognitive performance, and resilience." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+
+    <!-- Loading Screen -->
+    <div class="loader">
+      <div class="loader-logo">
+        <img src="/ion-logo-stacked.png" alt="ION" style="width:100px;height:auto;" />
+      </div>
+      <div class="loader-line"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#top" class="navbar-logo">
+          <img src="/ION.png" alt="ION" />
+        </a>
+
+        <div class="navbar-links">
+          <a href="#approach">Approach</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#team">Team</a>
+          <a href="#journals">Journals</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="magnetic">
+          <a href="#contact" class="navbar-cta">Book Consultation</a>
+        </div>
+
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav">
+      <a href="#approach">Approach</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#team">Team</a>
+      <a href="#journals">Journals</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn-dark" style="margin-top:16px;font-size:16px;">Book Consultation</a>
+    </div>
+
+    <main id="top">
+
+      <!-- ============================================
+           HERO
+           ============================================ -->
+      <section class="hero">
+        <svg class="hero-constellation" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <circle class="constellation-dot" cx="120" cy="150" r="2" fill="#2a6b8a"/>
+          <circle class="constellation-dot" cx="300" cy="80" r="1.5" fill="#2a6b8a" style="animation-delay:-5s"/>
+          <circle class="constellation-dot" cx="500" cy="200" r="2" fill="#2a6b8a" style="animation-delay:-3s"/>
+          <circle class="constellation-dot" cx="700" cy="120" r="1.5" fill="#2a6b8a" style="animation-delay:-8s"/>
+          <circle class="constellation-dot" cx="900" cy="180" r="2" fill="#2a6b8a" style="animation-delay:-12s"/>
+          <circle class="constellation-dot" cx="1050" cy="100" r="1.5" fill="#2a6b8a" style="animation-delay:-7s"/>
+          <circle class="constellation-dot" cx="200" cy="400" r="1.5" fill="#2a6b8a" style="animation-delay:-10s"/>
+          <circle class="constellation-dot" cx="400" cy="350" r="2" fill="#2a6b8a" style="animation-delay:-4s"/>
+          <circle class="constellation-dot" cx="600" cy="450" r="1.5" fill="#2a6b8a" style="animation-delay:-15s"/>
+          <circle class="constellation-dot" cx="800" cy="380" r="2" fill="#2a6b8a" style="animation-delay:-9s"/>
+          <circle class="constellation-dot" cx="1000" cy="420" r="1.5" fill="#2a6b8a" style="animation-delay:-6s"/>
+          <circle class="constellation-dot" cx="150" cy="600" r="2" fill="#2a6b8a" style="animation-delay:-13s"/>
+          <circle class="constellation-dot" cx="350" cy="550" r="1.5" fill="#2a6b8a" style="animation-delay:-2s"/>
+          <circle class="constellation-dot" cx="550" cy="650" r="2" fill="#2a6b8a" style="animation-delay:-11s"/>
+          <circle class="constellation-dot" cx="750" cy="580" r="1.5" fill="#2a6b8a" style="animation-delay:-7s"/>
+          <circle class="constellation-dot" cx="950" cy="620" r="2" fill="#2a6b8a" style="animation-delay:-14s"/>
+          <line x1="120" y1="150" x2="300" y2="80" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="300" y1="80" x2="500" y2="200" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="500" y1="200" x2="700" y2="120" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="700" y1="120" x2="900" y2="180" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="900" y1="180" x2="1050" y2="100" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="200" y1="400" x2="400" y2="350" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="400" y1="350" x2="600" y2="450" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="600" y1="450" x2="800" y2="380" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="800" y1="380" x2="1000" y2="420" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="150" y1="600" x2="350" y2="550" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="350" y1="550" x2="550" y2="650" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="550" y1="650" x2="750" y2="580" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="750" y1="580" x2="950" y2="620" stroke="#2a6b8a" stroke-width="0.5"/>
+          <line x1="120" y1="150" x2="200" y2="400" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="500" y1="200" x2="400" y2="350" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="700" y1="120" x2="800" y2="380" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="900" y1="180" x2="1000" y2="420" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="200" y1="400" x2="150" y2="600" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="600" y1="450" x2="550" y2="650" stroke="#2a6b8a" stroke-width="0.3"/>
+          <line x1="800" y1="380" x2="750" y2="580" stroke="#2a6b8a" stroke-width="0.3"/>
+        </svg>
+
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="/ion-logo-stacked.png" alt="ION — Integrative Opus Neuroscience" />
+          </div>
+          <div class="hero-eyebrow">INTEGRATIVE OPUS NEUROSCIENCE</div>
+          <h1>Advanced Neurofeedback &amp; Biofeedback for Nervous System Regulation</h1>
+          <p class="hero-subtitle">Evidence-informed neurotechnology to support emotional stability, cognitive performance, and resilience.</p>
+          <p class="hero-body">At ION, we use advanced neurofeedback and biofeedback to help the brain and nervous system regulate more effectively. Our personalised approach supports individuals experiencing anxiety, burnout, attention difficulties, sensory sensitivities, and nervous system dysregulation.</p>
+          <div class="hero-buttons">
+            <div class="magnetic"><a href="#contact" class="btn-dark">Book a Consultation</a></div>
+            <div class="magnetic"><a href="#newsletter" class="btn-outline">Join the Newsletter</a></div>
+          </div>
+        </div>
+
+        <div class="hero-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 2 — Brain Adapting Interstitial
+           ============================================ -->
+      <section class="interstitial">
+        <div class="interstitial-content">
+          <div class="interstitial-illustration" data-reveal="scale-up">
+            <img src="/dysregulated-brain-CQnNtqEF.png" alt="Dysregulated brain illustration" class="interstitial-img" />
+          </div>
+          <p class="interstitial-text" data-reveal="fade-up">
+            <span class="highlight">Your brain is constantly adapting.</span><span class="soft"> Here's what happens when it becomes dysregulated.</span>
+          </p>
+          <div class="interstitial-arrow" data-reveal="fade" data-delay="2">
+            <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round">
+              <path d="M10 4v12M5 11l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 3 — Understanding the Challenge
+           ============================================ -->
+      <section class="challenge">
+        <div class="challenge-grid">
+          <div class="challenge-left">
+            <span class="eyebrow" data-reveal="fade-up">UNDERSTANDING THE CHALLENGE</span>
+            <h2 class="split-heading">When the Nervous System Struggles to Regulate</h2>
+
+            <!-- Yerkes-Dodson Arousal–Performance Curve -->
+            <div class="arousal-curve" data-reveal="fade-up" data-delay="2">
+              <canvas class="arousal-canvas"></canvas>
+              <div class="arousal-axis-y">Performance</div>
+              <div class="arousal-axis-x">Arousal</div>
+              <div class="arousal-zones">
+                <div class="arousal-zone arousal-zone-low">
+                  <span class="arousal-zone-label">Under-arousal</span>
+                  <span class="arousal-zone-desc">Fatigue · Inattention</span>
+                </div>
+                <div class="arousal-zone arousal-zone-peak">
+                  <span class="arousal-zone-label">Optimal</span>
+                  <span class="arousal-zone-desc">Focused · Motivated</span>
+                </div>
+                <div class="arousal-zone arousal-zone-high">
+                  <span class="arousal-zone-label">Over-arousal</span>
+                  <span class="arousal-zone-desc">Anxiety · Burnout</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="challenge-right">
+            <p data-reveal="fade-up">Many challenges — from anxiety and burnout to attention difficulties and sensory overwhelm — are linked to how the nervous system regulates itself. When the brain becomes stuck in patterns of hyper-arousal or instability, symptoms can emerge across mood, cognition, energy, sleep, and physical wellbeing.</p>
+            <p class="condition-label" data-reveal="fade-up" data-delay="1">Neurofeedback supports individuals experiencing:</p>
+            <div class="accordion">
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span class="accordion-dot"></span>
+                  <span class="accordion-title">Chronic Anxiety or Stress</span>
+                  <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                  <p>Chronic anxiety or stress often stem from a nervous system that struggles to maintain balance and stability. From a regulation perspective, these conditions reflect a dysregulation of arousal levels, leading to heightened sensitivity and reactivity as well as many physical symptoms from prolonged fight-or-flight states. With neurofeedback training, we aim to restore the brain's capacity to be at ease, which promotes healthier regulatory mechanisms. This process often results in reduced anxiety levels and improved emotional resilience.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span class="accordion-dot"></span>
+                  <span class="accordion-title">Burnout, Emotional Exhaustion, Fatigue</span>
+                  <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                  <p>Burnout and emotional exhaustion are indicative of a nervous system being pushed beyond its capacity to regulate effectively. We address this with neurofeedback by training the brain to restore a state of balance and energy regulation, with flexible efficiency for engaging in tasks as well as restorative rest. Our clients frequently experience increased vitality, motivation, and an enhanced ability to be present with their daily lives.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span class="accordion-dot"></span>
+                  <span class="accordion-title">ADHD and Attentional Difficulties</span>
+                  <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                  <p>Not all 'disorders of attention' are the same. ADHD and attentional difficulties can be viewed through the lens of nervous system dysregulation, particularly in managing focus, impulse control, and emotional regulation. As one of the first neurodevelopmental conditions to provide evidence of neurofeedback's historical efficacy, training the brain at its foundations have been shown to improve stable attention, and overall self-regulation. As a result, individuals often notice improvements in concentration, reduced impulsivity and frustration, and a better overall quality of life.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span class="accordion-dot"></span>
+                  <span class="accordion-title">Sleep Disturbances</span>
+                  <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                  <p>Sleep disturbances often arise from an inability to stabilise arousal levels within the nervous system, leading to difficulties in falling asleep, staying asleep, and waking up feeling refreshed. According to the literature, sleep quality is closely linked to brainwave activity and a lack of regulation. Neurofeedback helps to train for nervous system flexibility and transition: promoting a more efficient transition into restful sleep states, and promoting restorative rest. By enhancing the brain's natural ability to regulate sleep cycles, clients frequently report significant improvements in sleep quality, increased energy levels and better cognitive functioning throughout the day.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span class="accordion-dot"></span>
+                  <span class="accordion-title">Sensory and Information Processing Disorders</span>
+                  <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                  <p>Those with differences in sensory and information processing disorders often experience sensory oversensitivities or over-responsivity due to a dysregulated nervous system. This can be particularly challenging and distressing for some, due to the fact that we experience the world through our senses. This means that every day experiences can feel overwhelming. We use neurofeedback to help balance the brain's ability to process and respond to information and sensory input, promoting a more adaptive and efficient processing mechanism, reducing overwhelm and overload. Clients commonly report greater comfort and reduced anxiety when navigating sensory-rich environments.</p>
+                </div>
+              </div>
+
+              <div class="accordion-hidden">
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Tourette Syndrome and Tic Disorders</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Tourette Syndrome and tic disorders are neurodevelopmental conditions characterised by involuntary movements and vocalisations. These tics can vary in frequency and intensity, often exacerbated by stress or anxiety. Neurofeedback can be an effective tool in managing and reducing symptoms by promoting better self-regulation of arousal and stability. Through targeted training, our clients can improve their ability to regulate their nervous system responses, leading to a reduction in tic frequency and severity, improved emotional regulation, confidence, and enhanced overall functioning.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Mood Instabilities</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Mood instabilities, including depression, are often linked to an underlying dysregulation of emotional processing and physiological dysregulation within the nervous system. By training with neurofeedback, we can support the brain in achieving more stable emotional regulation. Clients frequently experience enhanced mood stability, reduced intrusive thoughts, improved emotional control, and a greater sense of overall well-being as they restore balance.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Cognitive Fatigue or Brain Fog</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Cognitive fatigue and brain fog can arise from an overstressed nervous system that struggles to maintain optimal functioning. With neurofeedback, we focus on enhancing brain stability, leading to clearer thinking, and improved cognitive performance. Clients typically experience better focus, memory retention, and mental clarity as we continue to train towards regulatory balance.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Chronic Pain and Fibromyalgia</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Chronic pain and fibromyalgia can be seen as manifestations of complex dysregulation within the nervous system. Specifically, according to the literature, the brain can get 'stuck' in patterns that heighten pain sensitivity. Through our work with neurofeedback, we aim to restore a more balanced and stable state to achieve healthier and more flexible brain patterns. Many of our clients often report substantial reductions in pain intensity, and improved functionality in daily activities as their nervous systems learn to regulate.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Seizures (Non-Epileptic and Epileptic)</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Seizures were the first neurological disorders to provide evidence of neurofeedback's effectiveness. They represent a lack of foundational stability within the nervous system. From a regulation perspective, neurofeedback aims to train the brain to promote global stability across brain networks, leading to a reduction in seizure frequency, intensity and recovery time. We are delighted to be able to contribute to improved quality of life, allowing those with seizures to move forward with achieving both their personal and professional goals.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Long Covid</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Long covid symptoms can reflect a dysregulated nervous system, particularly affecting the autonomic nervous system. This dysregulation can manifest in various ways, including fatigue, difficulty with heart rate regulation, and respiratory difficulties. We use neurofeedback to address these challenges by restoring the stability of autonomic functions such as heart rate variability, blood pressure regulation and overall energy management. As our clients engage in neurofeedback training, many report significant improvements in their symptoms, including enhanced energy levels, better emotional regulation, and overall improvements in quality of life.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    <span class="accordion-dot"></span>
+                    <span class="accordion-title">Brain Injury</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                  <div class="accordion-content">
+                    <p>Brain injuries can lead to significant instabilities within the nervous system, often resulting in persistent post-concussion symptoms such as headaches, dizziness, and cognitive difficulties. These symptoms are indicative of inefficiencies in brain stability, where the brain struggles to regulate its activity effectively. Research has shown that neurofeedback can be a valuable tool in addressing these challenges. By training to stabilise the brain's activity, this approach promotes better stability and functionality in the brain. Outcomes from both the scientific literature, and from our work with clients, indicate substantial improvements, including reduced headaches and mood swings, enhanced cognitive clarity, and overall better quality of life as their nervous system regains balance.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="accordion-show-more">
+                <span class="accordion-show-more-text">Show more conditions</span>
+                <span class="accordion-show-more-icon"></span>
+              </button>
+            </div>
+            <div data-reveal="fade-up" data-delay="3">
+              <div class="magnetic"><a href="#approach" class="btn-dark">Learn about Our Approach</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ============================================
+           SECTION 4 — Dysregulation Interstitial
+           ============================================ -->
+      <section class="interstitial">
+        <div class="interstitial-content">
+          <div class="regulation-curve" data-reveal="fade-up" style="max-width:500px;margin:0 auto 32px;">
+            <canvas class="regulation-canvas"></canvas>
+            <div class="regulation-labels">
+              <span class="regulation-label-left">Regulated</span>
+              <span class="regulation-label-right">Dysregulated</span>
+            </div>
+          </div>
+          <p class="interstitial-text" data-reveal="fade-up">
+            <span class="highlight">Dysregulation isn't permanent.</span><span class="soft"> With the right approach, your brain can learn to find its way back to balance.</span>
+          </p>
+          <div class="interstitial-arrow" data-reveal="fade" data-delay="2">
+            <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round">
+              <path d="M10 4v12M5 11l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 5 — Our Approach + Quote
+           ============================================ -->
+      <section id="approach" class="approach">
+        <div class="approach-inner">
+          <span class="eyebrow" data-reveal="fade-up">OUR APPROACH</span>
+          <h2 class="split-heading">A Personalised Approach to Nervous System Regulation</h2>
+
+          <div class="quote-card" data-reveal="scale-up" data-delay="1">
+            <blockquote>
+              "Personalised Medicine, a term used mostly in reference to using the individual genome to guide intervention, applies equally to neurofeedback. We are never treating the diagnosis; we are treating its manifestations, or more precisely, the manifestations of early history in this individual nervous system."
+            </blockquote>
+            <p class="attribution">— Sebern Fisher, <em>Neurofeedback In The Treatment of Developmental Trauma</em></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 6 — Technology Cards
+           ============================================ -->
+      <section class="tech-cards">
+        <div class="tech-grid">
+          <div class="card card-tilt tech-card" data-reveal="fade-up" data-delay="1">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+              </svg>
+            </div>
+            <h3>ILF Neurofeedback</h3>
+            <p>Neurofeedback is a non-invasive process that helps the brain improve its self-regulation. Infra-Low Frequency Neurofeedback targets the brain's foundational regulatory systems — supporting stability across emotional, cognitive and physiological domains.</p>
+            <span class="tech-link">Targeting infra-low frequencies below 0.01 Hz</span>
+          </div>
+
+          <div class="card card-tilt tech-card" data-reveal="fade-up" data-delay="2">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/>
+              </svg>
+            </div>
+            <h3>Frequency Band Training</h3>
+            <p>Classical neurofeedback involves frequency band training, a non-invasive form of neurofeedback that uses operant conditioning to strengthen specific mental states, such as focus or relaxation. By rewarding your brain for producing healthier EEG patterns, it promotes long-term self-regulation and peak cognitive performance.</p>
+            <span class="tech-link">Operant conditioning for EEG optimisation</span>
+          </div>
+
+          <div class="card card-tilt tech-card" data-reveal="fade-up" data-delay="3">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <h3>Biofeedback</h3>
+            <p>Physiological Biofeedback measures signals such as heart rate variability (HRV) to support regulation of the autonomic nervous system.</p>
+            <span class="tech-link">HRV-guided autonomic regulation</span>
+          </div>
+
+          <div class="card card-tilt tech-card" data-reveal="fade-up" data-delay="4">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <path d="M9 9h6v6H9z"/>
+                <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/>
+              </svg>
+            </div>
+            <h3>Future Technologies</h3>
+            <p>ION is building towards incorporating additional advanced brain-computer interface technologies in alignment with our values of growth, innovation, and holistic health.</p>
+            <span class="tech-link">Next-generation brain-computer interfaces</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ============================================
+           SECTION 7 — Science/Philosophy Interstitial
+           ============================================ -->
+      <section class="interstitial">
+        <div class="interstitial-content">
+          <div class="interstitial-illustration" data-reveal="scale-up">
+            <svg width="200" height="100" viewBox="0 0 200 100" fill="none">
+              <path d="M0 30 Q25 10 50 30 T100 30 T150 30 T200 30" stroke="#b0bcc8" stroke-width="0.8" fill="none"/>
+              <path d="M0 45 Q20 25 40 45 T80 45 T120 45 T160 45 T200 45" stroke="#b0bcc8" stroke-width="0.8" fill="none"/>
+              <path d="M0 60 Q30 40 60 60 T120 60 T180 60 T200 60" stroke="#b0bcc8" stroke-width="0.8" fill="none"/>
+              <path d="M0 75 Q15 55 30 75 T60 75 T90 75 T120 75 T150 75 T180 75 T200 75" stroke="#b0bcc8" stroke-width="0.8" fill="none"/>
+              <line x1="100" y1="15" x2="100" y2="90" stroke="#8a9ab0" stroke-width="0.5"/>
+              <circle cx="100" cy="30" r="3" fill="#8a9ab0"/>
+              <circle cx="100" cy="45" r="3" fill="#8a9ab0"/>
+              <circle cx="100" cy="60" r="3" fill="#8a9ab0"/>
+              <circle cx="100" cy="75" r="3" fill="#8a9ab0"/>
+            </svg>
+          </div>
+          <p class="interstitial-text" data-reveal="fade-up">
+            <span class="highlight">Science guides the process.</span><span class="soft"> But it's the philosophy behind it that makes the difference.</span>
+          </p>
+          <div class="interstitial-arrow" data-reveal="fade" data-delay="2">
+            <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round">
+              <path d="M10 4v12M5 11l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 8 — Philosophy
+           ============================================ -->
+      <section id="philosophy" class="philosophy">
+        <div class="philosophy-inner">
+          <span class="eyebrow" data-reveal="fade-up">OUR PHILOSOPHY</span>
+          <h2 class="split-heading">A Dynamic View of the Brain</h2>
+          <p class="philosophy-sub" data-reveal="fade-up" data-delay="1">At ION, we view the brain as a dynamic regulatory system. Rather than targeting isolated symptoms, our approach focuses on strengthening the brain's capacity for stability, flexibility and resilience.</p>
+
+          <div class="philosophy-grid">
+            <div class="card card-tilt philosophy-card" data-reveal="fade-up" data-delay="1">
+              <div class="card-top">
+                <div class="icon-badge">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                  </svg>
+                </div>
+                <span class="card-number">01</span>
+              </div>
+              <h3>Regulation First</h3>
+              <p>The brain must stabilise before higher-order change can occur. We prioritise foundational nervous system regulation as the essential first step.</p>
+            </div>
+
+            <div class="card card-tilt philosophy-card" data-reveal="fade-up" data-delay="2">
+              <div class="card-top">
+                <div class="icon-badge">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                    <path d="M9 9h6v6H9z"/>
+                    <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/>
+                  </svg>
+                </div>
+                <span class="card-number">02</span>
+              </div>
+              <h3>Technology with Clinical Insight</h3>
+              <p>Advanced neurotechnology guided by clinical neuroscience. Every protocol is informed by evidence and tailored to the individual.</p>
+            </div>
+
+            <div class="card card-tilt philosophy-card" data-reveal="fade-up" data-delay="3">
+              <div class="card-top">
+                <div class="icon-badge">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 17l6-6 4 4 8-8"/>
+                    <path d="M14 7h7v7"/>
+                  </svg>
+                </div>
+                <span class="card-number">03</span>
+              </div>
+              <h3>Long-Term Brain Health</h3>
+              <p>Training the nervous system to regulate more efficiently and independently — building lasting resilience, not temporary relief.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ============================================
+           SECTION 9 — Team Carousel
+           ============================================ -->
+      <section id="team" class="team">
+        <div class="container">
+          <div class="team-heading">
+            <span class="eyebrow" data-reveal="fade-up">OUR TEAM</span>
+            <h2 class="split-heading">Meet the Team</h2>
+          </div>
+
+          <div class="team-showcase">
+            <!-- Bio panel — appears when a card is active -->
+            <div class="team-bio-panel">
+              <div class="team-bio-inner">
+                <h3 class="team-bio-name"></h3>
+                <span class="team-bio-role"></span>
+                <p class="team-bio-text"></p>
+              </div>
+            </div>
+
+            <!-- Carousel -->
+            <div class="team-carousel-wrap">
+              <div class="team-carousel">
+                <div class="team-card active" data-reveal="fade-up" data-delay="1"
+                     data-name="Kasia"
+                     data-role="FOUNDER, NEUROFEEDBACK CLINICIAN, LECTURER"
+                     data-bio="Kasia is a dedicated neurofeedback clinician and the founder of ION. With a passion for enhancing mental health and performance, she utilises innovative neurofeedback techniques to help clients achieve optimal self-regulation. As a lecturer, Kasia shares her expertise across Europe, Asia, and The Caribbean, in neurophysiological approaches, empowering others to understand the profound impact of nervous system regulation on overall well-being. Her commitment to advancing the field of neurofeedback is evident in her work, research and outreach.">
+                  <div class="team-card-photo">
+                    <img src="/kasia headshot.png" alt="Kasia" />
+                  </div>
+                  <div class="team-card-info">
+                    <h4>Kasia</h4>
+                    <span class="role">FOUNDER &amp; CLINICIAN</span>
+                  </div>
+                </div>
+
+                <div class="team-card" data-reveal="fade-up" data-delay="2"
+                     data-name="Benjamin"
+                     data-role="HEAD OF ENGINEERING, NEUROTECHNOLOGY"
+                     data-bio="With a background in large-scale IT infrastructure, AI development, and immersive technology, he brings a rigorous engineering perspective to the field of neurofeedback designing and building the technical systems that support ION's clinical practice and enable clients to achieve the best possible outcomes. His commitment to purposeful technology is rooted in a belief that the right tools, thoughtfully built, have the power to make the profound benefits of nervous system regulation accessible to all.">
+                  <div class="team-card-photo">
+                    <img src="/Benjamin.jpeg" alt="Benjamin" />
+                  </div>
+                  <div class="team-card-info">
+                    <h4>Benjamin</h4>
+                    <span class="role">HEAD OF ENGINEERING</span>
+                  </div>
+                </div>
+
+                <div class="team-card" data-reveal="fade-up" data-delay="3"
+                     data-name="Dr. Nistor"
+                     data-role="CLINICAL ADVISOR"
+                     data-bio="Dr. Nistor serves as ION's Clinical Advisor, providing medical oversight and ensuring that neurofeedback protocols are integrated within a broader framework of neurological and clinical care. His experience in neurology brings an added layer of rigour and safety to ION's practice.">
+                  <div class="team-card-photo">
+                    <img src="/dr-nistor-placeholder.svg" alt="Dr. Nistor" />
+                  </div>
+                  <div class="team-card-info">
+                    <h4>Dr. Nistor</h4>
+                    <span class="role">CLINICAL ADVISOR</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="team-nav">
+                <button class="team-prev" aria-label="Previous">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button class="team-next" aria-label="Next">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 10 — Journals
+           ============================================ -->
+      <section id="journals" class="journals">
+        <div class="container">
+          <div class="journals-header">
+            <span class="eyebrow" data-reveal="fade-up">KNOWLEDGE</span>
+            <h2 class="split-heading">Journals</h2>
+            <p data-reveal="fade-up" data-delay="1">As frontiers in nervous system regulation, we offer a collection of reflections, research insights, and clinical perspectives on brain health and neurofeedback.</p>
+          </div>
+
+          <div class="journals-grid">
+            <div class="card card-tilt journal-card" data-reveal="fade-up" data-delay="1">
+              <span class="category">RESEARCH</span>
+              <h3>The Neurobiology of Selective Mutism: Trauma, Language, and the Social Brain</h3>
+              <p class="summary">Selective mutism reframed as a disruption in the integration of emotional and language networks — where heightened limbic activation inhibits the cortical systems necessary for speech and social engagement.</p>
+              <a href="#" class="read-link">Read here &rarr;</a>
+            </div>
+
+            <div class="card card-tilt journal-card" data-reveal="fade-up" data-delay="2">
+              <span class="category">HISTORICAL INSIGHT</span>
+              <h3>From Trauma to Transformation: How Early Neurofeedback Pioneers Changed the Way We Think About the Brain</h3>
+              <p class="summary">A technique born from repairing damaged brains may hold the key to optimising every brain. Tracing neurofeedback's roots from mid-20th century brain electrical activity studies to modern neurotherapeutics.</p>
+              <a href="#" class="read-link">Read here &rarr;</a>
+            </div>
+
+            <div class="card card-tilt journal-card" data-reveal="fade-up" data-delay="3">
+              <span class="category">CLINICAL INSIGHT</span>
+              <h3>Understanding Brain Injury Through a Glial and Regulatory Lens</h3>
+              <p class="summary">Brain injury is not solely a neuronal event — it is a disruption of the brain's regulatory ecosystem, in which glial mechanisms play a central role. Rethinking recovery beyond traditional symptom frameworks.</p>
+              <a href="#" class="read-link">Read here &rarr;</a>
+            </div>
+          </div>
+
+          <div class="journals-footer" data-reveal="fade-up" data-delay="4">
+            <div class="magnetic"><a href="/articles.html" class="btn-pill">View all articles &rarr;</a></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ============================================
+           SECTION 11 — Webinars
+           ============================================ -->
+      <section class="webinars">
+        <div class="container">
+          <h2 class="split-heading">Webinars</h2>
+
+          <div class="webinars-grid">
+            <div class="video-card" data-reveal="fade-up" data-delay="1"
+                 data-video-url="" data-file-path="" data-is-external="0"
+                 data-video-title="Introduction to Neurofeedback — Webinar">
+              <div class="thumbnail">
+                <span class="placeholder-text">ION</span>
+                <div class="play-button"></div>
+              </div>
+              <p class="video-title">Introduction to Neurofeedback — Webinar</p>
+            </div>
+
+            <div class="video-card" data-reveal="fade-up" data-delay="2"
+                 data-video-url="" data-file-path="" data-is-external="0"
+                 data-video-title="Understanding Your Nervous System — Webinar">
+              <div class="thumbnail">
+                <div class="play-button"></div>
+              </div>
+              <p class="video-title">Understanding Your Nervous System — Webinar</p>
+            </div>
+          </div>
+
+          <!-- Video Player -->
+          <div class="video-player-wrap" id="videoPlayer" style="display:none;">
+            <div class="video-player-header">
+              <h3 class="video-player-title"></h3>
+              <button class="video-player-close" aria-label="Close player">&times;</button>
+            </div>
+            <div class="video-player-container">
+              <!-- Filled dynamically: <video> or <iframe> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 12 — Educational Resources
+           ============================================ -->
+      <section class="education">
+        <div class="education-grid">
+          <div class="education-left">
+            <span class="eyebrow" data-reveal="fade-up">EDUCATIONAL RESOURCES</span>
+            <h2 class="split-heading">Educational Resources</h2>
+            <p data-reveal="fade-up" data-delay="1">Additional educational materials will be released through ION. Our featured resource provides a comprehensive introduction to neurofeedback and nervous system regulation.</p>
+            <div data-reveal="fade-up" data-delay="2">
+              <div class="magnetic"><a href="#" class="btn-dark">Purchase Ebook</a></div>
+            </div>
+          </div>
+
+          <div class="ebook-card" data-reveal="slide-left" data-delay="2">
+            <div class="ebook-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3>Featured Ebook</h3>
+            <p>A guide to neurofeedback &amp; nervous system regulation</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ============================================
+           SECTION 13 — Newsletter
+           ============================================ -->
+      <section id="newsletter" class="newsletter">
+        <div class="newsletter-inner">
+          <span class="eyebrow" data-reveal="fade-up">NEWSLETTER</span>
+          <h2 class="split-heading">Be Part of the Dialogue</h2>
+          <p data-reveal="fade-up" data-delay="1">Join our growing community. Receive a monthly newsletter including complementary educational resources, the latest news in social neuroscience, and updates from ION.</p>
+          <p data-reveal="fade-up" data-delay="2">Newsletter subscribers receive early access and discounts to all social and educational events. Pricing information and service updates are also shared with subscribers.</p>
+
+          <form class="newsletter-form" data-reveal="fade-up" data-delay="3" id="subscribe-form">
+            <input type="email" id="subscribe-email" placeholder="Your email address" required />
+            <button type="submit">Join the Community</button>
+          </form>
+          <p id="subscribe-message" style="font-size:14px;margin-top:16px;min-height:20px;"></p>
+        </div>
+      </section>
+
+      <!-- ============================================
+           SECTION 14 — Contact
+           ============================================ -->
+      <section id="contact" class="contact">
+        <div class="contact-grid">
+          <div class="contact-left">
+            <span class="eyebrow" data-reveal="fade-up">GET IN TOUCH</span>
+            <h2 class="split-heading">Book a Consultation</h2>
+            <p data-reveal="fade-up" data-delay="1">If you are interested in neurofeedback training, or would like to discuss whether it may be appropriate for you or a loved one, schedule an initial consultation below.</p>
+
+            <div class="contact-details">
+              <div class="contact-row" data-reveal="slide-right" data-delay="2">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div>
+                  <div class="label">Clinic Location</div>
+                  <div class="value">ION Neurofeedback Clinic</div>
+                </div>
+              </div>
+
+              <div class="contact-row" data-reveal="slide-right" data-delay="3">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <div>
+                  <div class="label">Email</div>
+                  <div class="value"><a href="mailto:info@ion-neuroscience.com">info@ion-neuroscience.com</a></div>
+                </div>
+              </div>
+
+              <div class="contact-row" data-reveal="slide-right" data-delay="4">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <div>
+                  <div class="label">Phone &amp; WhatsApp</div>
+                  <div class="value">Contact us for details</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="consultation-card" data-reveal="slide-left" data-delay="2">
+            <h3>Complimentary Consultation — 30 minutes</h3>
+            <p>Your consultation is an opportunity for us to hear your story — to understand your struggles, your current environment, and what brought you here. We'll walk you through how neurofeedback works, answer any questions you may have, and give you the chance to see the space where your training would take place.</p>
+            <div class="operating-row">
+              <span class="op-label">OPERATING DAYS</span>
+              <span class="op-value">Mon &middot; Wed &middot; Fri, 8 AM – 7 PM</span>
+            </div>
+            <div class="magnetic"><a href="#" class="btn-dark" style="width:100%;text-align:center;">Schedule Consultation</a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/ION.png" alt="ION" />
+          </div>
+          <p class="tagline">ION — Advancing Nervous System Regulation</p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-label">NAVIGATION</div>
+          <ul>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#journals">Journals</a></li>
+            <li><a href="#contact">Bookings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-label">CONNECT</div>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-label">LEGAL</div>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> ION Neuroscience. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/frontend-api.js"></script>
+  </body>
+</html>

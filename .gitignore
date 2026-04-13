@@ -1,0 +1,7 @@
+node_modules/
+.env
+ion.db
+uploads/
+dist/
+ion.db-shm
+ion.db-wal
