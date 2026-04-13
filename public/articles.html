@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journals — ION Neuroscience</title>
+    <meta name="description" content="Reflections, research insights, and clinical perspectives on brain health and neurofeedback from ION." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+      <div class="container">
+        <a href="/" class="navbar-logo">
+          <img src="/ION.png" alt="ION" />
+        </a>
+        <div class="navbar-links">
+          <a href="/#approach">Approach</a>
+          <a href="/#philosophy">Philosophy</a>
+          <a href="/#team">Team</a>
+          <a href="/articles.html" class="active">Journals</a>
+          <a href="/#contact">Contact</a>
+        </div>
+        <div class="magnetic">
+          <a href="/#contact" class="navbar-cta">Book Consultation</a>
+        </div>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav">
+      <a href="/#approach">Approach</a>
+      <a href="/#philosophy">Philosophy</a>
+      <a href="/#team">Team</a>
+      <a href="/articles.html">Journals</a>
+      <a href="/#contact">Contact</a>
+    </div>
+
+    <main style="padding-top: 80px;">
+      <section class="articles-page">
+        <div class="container">
+          <div class="articles-page-header">
+            <a href="/" class="back-link">&larr; Back to home</a>
+            <span class="eyebrow">KNOWLEDGE</span>
+            <h1>Journals</h1>
+            <p>A growing collection of reflections, research insights, and clinical perspectives on brain health and neurofeedback.</p>
+          </div>
+
+          <div class="articles-page-grid" id="all-articles-grid">
+            <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:60px 0;color:#6b7a8d;">Loading articles...</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/ION.png" alt="ION" />
+          </div>
+          <p class="tagline">ION — Advancing Nervous System Regulation</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">NAVIGATION</div>
+          <ul>
+            <li><a href="/#approach">Approach</a></li>
+            <li><a href="/#philosophy">Philosophy</a></li>
+            <li><a href="/#team">Team</a></li>
+            <li><a href="/articles.html">Journals</a></li>
+            <li><a href="/#contact">Bookings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">CONNECT</div>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">LEGAL</div>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> ION Neuroscience. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Hamburger menu
+      const hamburger = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          mobileNav.classList.toggle('open');
+        });
+        mobileNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+          });
+        });
+      }
+
+      // Load all articles
+      (async () => {
+        const API = 'http://localhost:3000/api';
+        const grid = document.getElementById('all-articles-grid');
+
+        try {
+          const res = await fetch(`${API}/articles`);
+          const articles = await res.json();
+
+          if (!articles.length) {
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:#6b7a8d;">No articles published yet.</div>';
+            return;
+          }
+
+          grid.innerHTML = articles.map((a) => {
+            const href = a.is_external ? a.external_url : '#';
+            const target = a.is_external ? ' target="_blank" rel="noopener"' : '';
+
+            return `
+              <a href="${esc(href)}"${target} class="card journal-card article-page-card">
+                <span class="category">${esc(a.category)}</span>
+                <h3>${esc(a.title)}</h3>
+                <p class="summary">${esc(a.summary)}</p>
+                <span class="read-link">Read here &rarr;</span>
+              </a>
+            `;
+          }).join('');
+        } catch {
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:#6b7a8d;">Unable to load articles. Please try again later.</div>';
+        }
+
+        function esc(str) {
+          const el = document.createElement('span');
+          el.textContent = str || '';
+          return el.innerHTML;
+        }
+      })();
+    </script>
+  </body>
+</html>
