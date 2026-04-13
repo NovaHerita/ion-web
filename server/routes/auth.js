@@ -1,53 +1,42 @@
 import { Router } from 'express';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import supabase from '../db.js';
 
 const router = Router();
 
-// In-memory admin credentials from env
-let adminHash = null;
-
-function getAdminHash() {
-  if (!adminHash) {
-    adminHash = bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'admin', 10);
-  }
-  return adminHash;
-}
-
 // POST /api/auth/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  if (email !== process.env.ADMIN_EMAIL) {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
     return res.status(401).json({ error: 'Invalid credentials' });
   }
 
-  if (!bcrypt.compareSync(password, getAdminHash())) {
-    return res.status(401).json({ error: 'Invalid credentials' });
-  }
-
-  const token = jwt.sign(
-    { email, role: 'admin' },
-    process.env.JWT_SECRET,
-    { expiresIn: '24h' }
-  );
-
-  res.json({ token, email });
+  res.json({
+    token: data.session.access_token,
+    email: data.user.email,
+  });
 });
 
 // GET /api/auth/verify
-router.get('/verify', (req, res) => {
+router.get('/verify', async (req, res) => {
   const header = req.headers.authorization;
   if (!header || !header.startsWith('Bearer ')) {
     return res.status(401).json({ valid: false });
   }
 
-  try {
-    jwt.verify(header.slice(7), process.env.JWT_SECRET);
-    res.json({ valid: true });
-  } catch {
-    res.status(401).json({ valid: false });
+  const token = header.slice(7);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
+
+  if (error || !user) {
+    return res.status(401).json({ valid: false });
   }
+
+  res.json({ valid: true });
 });
 
 export default router;

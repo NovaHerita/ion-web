@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
   // DELETE /api/subscribers/:id
   if (req.method === 'DELETE') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { error } = await supabase
       .from('subscribers')

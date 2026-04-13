@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   // GET /api/videos/all — admin
   if (route === 'all' && req.method === 'GET') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { data, error } = await supabase
       .from('videos')
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
   // PUT /api/videos/reorder — admin
   if (route === 'reorder' && req.method === 'PUT') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { order } = req.body;
     if (!Array.isArray(order)) return res.status(400).json({ error: 'order array required' });
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   const id = route;
 
   if (req.method === 'PUT') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { title, description, video_url, thumbnail_url, published } = req.body;
 
@@ -66,7 +66,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'DELETE') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { error } = await supabase
       .from('videos')

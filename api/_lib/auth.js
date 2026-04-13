@@ -1,21 +1,22 @@
-import jwt from 'jsonwebtoken';
+import supabase from './supabase.js';
 
-export function requireAuth(req, res) {
+export async function requireAuth(req, res) {
   const header = req.headers.authorization;
   if (!header || !header.startsWith('Bearer ')) {
     res.status(401).json({ error: 'Unauthorized' });
     return false;
   }
 
-  try {
-    const token = header.slice(7);
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    req.admin = payload;
-    return true;
-  } catch {
+  const token = header.slice(7);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
+
+  if (error || !user) {
     res.status(401).json({ error: 'Invalid token' });
     return false;
   }
+
+  req.admin = user;
+  return true;
 }
 
 export function cors(res) {

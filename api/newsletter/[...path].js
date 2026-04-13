@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   // GET /api/newsletter/history
   if (route === 'history' && req.method === 'GET') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { data, error } = await supabase
       .from('newsletters')
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
   // POST /api/newsletter/send
   if (route === 'send' && req.method === 'POST') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { subject, body } = req.body;
 
@@ -102,7 +102,7 @@ export default async function handler(req, res) {
 
   // POST /api/newsletter/test
   if (route === 'test' && req.method === 'POST') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { subject, body, testEmail } = req.body;
 

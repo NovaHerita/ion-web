@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { title, category, summary, content, external_url, is_external, published } = req.body;
 

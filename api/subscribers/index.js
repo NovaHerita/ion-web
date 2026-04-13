@@ -40,7 +40,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    if (!requireAuth(req, res)) return;
+    if (!(await requireAuth(req, res))) return;
 
     const { data: subscribers, error } = await supabase
       .from('subscribers')
