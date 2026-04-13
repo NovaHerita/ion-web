@@ -1,9 +1,7 @@
 (() => {
   'use strict';
 
-  const API = window.location.port === '5174'
-    ? 'http://localhost:3000/api'
-    : '/api';
+  const API = '/api';
 
   let token = localStorage.getItem('ion_token');
 

@@ -6,7 +6,7 @@
 (() => {
   'use strict';
 
-  const API = 'http://localhost:3000/api';
+  const API = '/api';
 
   // ——— Newsletter Subscribe ———
   const form = document.getElementById('subscribe-form');

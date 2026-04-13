@@ -5,3 +5,5 @@ uploads/
 dist/
 ion.db-shm
 ion.db-wal
+
+.vercel
