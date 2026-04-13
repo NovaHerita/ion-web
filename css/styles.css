@@ -54,6 +54,10 @@ html.lenis, html.lenis body {
   overscroll-behavior: contain;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   background: var(--background);
@@ -2419,9 +2423,26 @@ h1, h2, h3, h4 {
   .interstitial-text { font-size: 21px; }
   .interstitial-img { width: 140px; }
 
+  /* Reduce horizontal padding on all sections */
+  .challenge { padding: 80px 20px; }
+  .approach { padding: 80px 20px; }
+  .philosophy { padding: 80px 20px; }
+  .tech-cards { padding: 80px 20px; }
+  .journals { padding: 80px 20px; }
+  .webinars { padding: 80px 20px; }
+  .education { padding: 80px 20px; }
+  .contact { padding: 80px 20px; }
+  .team { padding: 80px 20px; }
+  .newsletter { padding: 80px 20px; }
+  .footer { padding: 60px 20px 40px; }
+
   /* Challenge section */
   .challenge-grid { grid-template-columns: 1fr; gap: 40px; }
   .challenge-left h2 { font-size: 28px; }
+
+  /* Arousal curve — prevent overflow */
+  .arousal-curve { overflow: hidden; }
+  .arousal-zone-label { white-space: normal; }
 
   /* Regulation curve */
   .regulation-canvas { height: 80px; }
@@ -2549,6 +2570,19 @@ h1, h2, h3, h4 {
    SMALL MOBILE (480px)
    ======================================== */
 @media (max-width: 480px) {
+  /* Tighten padding further on small phones */
+  .challenge,
+  .approach,
+  .philosophy,
+  .tech-cards,
+  .journals,
+  .webinars,
+  .education,
+  .contact,
+  .team,
+  .newsletter { padding-left: 16px; padding-right: 16px; }
+  .footer { padding-left: 16px; padding-right: 16px; }
+
   .footer-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 26px; }
   .hero-logo img { width: 80px; }
