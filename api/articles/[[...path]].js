@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   cors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  const raw = Array.isArray(req.query.path) ? req.query.path : (req.query.path ? [req.query.path] : []);
+  const rawPath = req.query['...path'] ?? req.query.path;
+  const raw = Array.isArray(rawPath) ? rawPath : (rawPath ? rawPath.split('/') : []);
   const parts = raw[0] === '__root' ? raw.slice(1) : raw;
   const route = parts.join('/');
 

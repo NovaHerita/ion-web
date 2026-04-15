@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   cors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  const route = Array.isArray(req.query.path) ? req.query.path.join('/') : req.query.path;
+  const rawPath = req.query['...path'] ?? req.query.path;
+  const route = Array.isArray(rawPath) ? rawPath.join('/') : (rawPath || '');
 
   if (route === 'login' && req.method === 'POST') {
     const { email, password } = req.body;
