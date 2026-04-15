@@ -25,13 +25,18 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),
         });
-        const data = await res.json();
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          msgEl.style.color = '#c0564a';
+          msgEl.textContent = data.error || `Error ${res.status}: subscribe failed`;
+          return;
+        }
         msgEl.style.color = '#2d8a4e';
         msgEl.textContent = data.message || 'Successfully subscribed!';
         form.reset();
-      } catch {
+      } catch (err) {
         msgEl.style.color = '#c0564a';
-        msgEl.textContent = 'Something went wrong. Please try again.';
+        msgEl.textContent = `Network error: ${err.message}`;
       }
     });
   }
