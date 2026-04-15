@@ -3,6 +3,9 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/admin/", "destination": "/admin/index.html" }
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/api/articles", "destination": "/api/articles/__root" },
+    { "source": "/api/videos", "destination": "/api/videos/__root" },
+    { "source": "/api/subscribers", "destination": "/api/subscribers/__root" }
   ]
 }

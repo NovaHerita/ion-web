@@ -1,12 +1,16 @@
-import supabase from './_lib/supabase.js';
-import { requireAuth, cors } from './_lib/auth.js';
+import supabase from '../_lib/supabase.js';
+import { requireAuth, cors } from '../_lib/auth.js';
 
 export default async function handler(req, res) {
   cors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
 
+  const raw = Array.isArray(req.query.path) ? req.query.path : (req.query.path ? [req.query.path] : []);
+  // The bare path /api/subscribers is rewritten to /api/subscribers/__root via vercel.json
+  const parts = raw[0] === '__root' ? raw.slice(1) : raw;
+
   // POST /api/subscribers — public subscribe
-  if (req.method === 'POST') {
+  if (parts.length === 0 && req.method === 'POST') {
     const { email, name } = req.body || {};
 
     if (!email || !email.includes('@')) {
@@ -41,7 +45,7 @@ export default async function handler(req, res) {
   }
 
   // GET /api/subscribers — admin list
-  if (req.method === 'GET') {
+  if (parts.length === 0 && req.method === 'GET') {
     if (!(await requireAuth(req, res))) return;
 
     const { data: subscribers, error } = await supabase
@@ -58,6 +62,32 @@ export default async function handler(req, res) {
     };
 
     return res.json({ subscribers, stats });
+  }
+
+  const id = parts[0];
+
+  // POST /api/subscribers/:id/unsubscribe
+  if (parts.length === 2 && parts[1] === 'unsubscribe' && req.method === 'POST') {
+    const { error } = await supabase
+      .from('subscribers')
+      .update({ subscribed: false, unsubscribed_at: new Date().toISOString() })
+      .eq('id', id);
+
+    if (error) return res.status(500).json({ error: error.message });
+    return res.json({ message: 'Unsubscribed successfully' });
+  }
+
+  // DELETE /api/subscribers/:id
+  if (req.method === 'DELETE') {
+    if (!(await requireAuth(req, res))) return;
+
+    const { error } = await supabase
+      .from('subscribers')
+      .delete()
+      .eq('id', id);
+
+    if (error) return res.status(500).json({ error: error.message });
+    return res.json({ success: true });
   }
 
   res.status(405).json({ error: 'Method not allowed' });
