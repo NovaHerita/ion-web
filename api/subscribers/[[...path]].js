@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       .from('subscribers')
       .select('*')
       .eq('email', email)
-      .single();
+      .maybeSingle();
 
     if (existing) {
       if (existing.subscribed) {
