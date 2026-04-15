@@ -20,6 +20,11 @@ export default async function handler(req, res) {
 
   const route = Array.isArray(req.query.path) ? req.query.path.join('/') : req.query.path;
 
+  // DEBUG — temporary
+  if (req.query._debug === '1') {
+    return res.json({ query: req.query, url: req.url, method: req.method });
+  }
+
   // GET /api/newsletter/history
   if (route === 'history' && req.method === 'GET') {
     if (!(await requireAuth(req, res))) return;
