@@ -1570,6 +1570,10 @@ h1, h2, h3, h4 {
   transition: transform 0.8s var(--ease-out-expo);
 }
 
+.team-card-photo img[alt="Miriam"] {
+  object-position: center 25%;
+}
+
 .team-card:hover .team-card-photo img {
   transform: scale(1.05);
 }
@@ -2467,6 +2471,25 @@ h1, h2, h3, h4 {
   transform: translateX(3px);
 }
 
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
+}
+
+.footer-socials a:hover svg {
+  color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.08);
+}
+
 .footer-bottom {
   max-width: var(--max-width);
   margin: 72px auto 0;
@@ -2480,6 +2503,15 @@ h1, h2, h3, h4 {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.25);
   font-weight: 300;
+}
+
+.footer-registration {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.18) !important;
+  line-height: 1.6;
+  max-width: 720px;
 }
 
 /* ========================================
