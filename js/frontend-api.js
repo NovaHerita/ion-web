@@ -8,36 +8,95 @@
 
   const API = '/api';
 
-  // ——— Newsletter Subscribe ———
+  // ——— Newsletter Subscribe (with GDPR consent modal) ———
   const form = document.getElementById('subscribe-form');
   const msgEl = document.getElementById('subscribe-message');
+  const modal = document.getElementById('consent-modal');
+  const checkbox = document.getElementById('consent-checkbox');
+  const confirmBtn = document.getElementById('consent-confirm');
+  const cancelBtn = document.getElementById('consent-cancel');
+
+  function openConsentModal() {
+    if (!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (checkbox) checkbox.checked = false;
+    if (confirmBtn) confirmBtn.disabled = true;
+  }
+
+  function closeConsentModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  async function submitSubscription(email) {
+    msgEl.style.color = '#6b7a8d';
+    msgEl.textContent = 'Subscribing...';
+
+    try {
+      const res = await fetch(`${API}/subscribers`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          consent: true,
+          consentText: checkbox?.parentElement?.querySelector('span')?.textContent?.trim() ||
+            'User confirmed GDPR consent on newsletter signup form',
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        msgEl.style.color = '#c0564a';
+        msgEl.textContent = data.error || `Error ${res.status}: subscribe failed`;
+        return;
+      }
+      msgEl.style.color = '#2d8a4e';
+      msgEl.textContent = data.message || 'Successfully subscribed!';
+      form.reset();
+    } catch (err) {
+      msgEl.style.color = '#c0564a';
+      msgEl.textContent = `Network error: ${err.message}`;
+    }
+  }
 
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('subscribe-email').value;
-      msgEl.style.color = '#6b7a8d';
-      msgEl.textContent = 'Subscribing...';
+      const email = document.getElementById('subscribe-email').value.trim();
+      if (!email) return;
+      msgEl.textContent = '';
+      openConsentModal();
+    });
+  }
 
-      try {
-        const res = await fetch(`${API}/subscribers`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok) {
-          msgEl.style.color = '#c0564a';
-          msgEl.textContent = data.error || `Error ${res.status}: subscribe failed`;
-          return;
-        }
-        msgEl.style.color = '#2d8a4e';
-        msgEl.textContent = data.message || 'Successfully subscribed!';
-        form.reset();
-      } catch (err) {
-        msgEl.style.color = '#c0564a';
-        msgEl.textContent = `Network error: ${err.message}`;
-      }
+  if (checkbox && confirmBtn) {
+    checkbox.addEventListener('change', () => {
+      confirmBtn.disabled = !checkbox.checked;
+    });
+  }
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', async () => {
+      if (!checkbox?.checked) return;
+      const email = document.getElementById('subscribe-email').value.trim();
+      closeConsentModal();
+      await submitSubscription(email);
+    });
+  }
+
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', closeConsentModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeConsentModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeConsentModal();
     });
   }
 
