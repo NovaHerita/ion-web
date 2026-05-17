@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article — ION Neuroscience</title>
+    <meta name="description" content="Reflections, research insights, and clinical perspectives on brain health and neurofeedback from ION." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      .article-read { max-width: 720px; margin: 0 auto; padding: 60px 0 120px; }
+      .article-read .back-link {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--accent);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 32px;
+        transition: gap 0.3s var(--ease-out-expo);
+      }
+      .article-read .back-link:hover { gap: 10px; }
+      .article-read .category {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .article-read h1 {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 4.5vw, 48px);
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 16px 0 12px;
+      }
+      .article-read .meta {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 40px;
+      }
+      .article-read .summary {
+        font-family: var(--font-body);
+        font-size: 18px;
+        color: var(--muted);
+        line-height: 1.75;
+        font-weight: 300;
+        font-style: italic;
+        margin-bottom: 40px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
+      .article-read .content {
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.85;
+        color: #2d3a4d;
+      }
+      .article-read .content p { margin: 0 0 20px; }
+      .article-read .content h2,
+      .article-read .content h3 {
+        font-family: var(--font-display);
+        margin: 40px 0 16px;
+        letter-spacing: -0.01em;
+      }
+      .article-read .content h2 { font-size: 28px; }
+      .article-read .content h3 { font-size: 22px; }
+      .article-read .content a { color: var(--accent); text-decoration: underline; }
+      .article-read .content blockquote {
+        border-left: 3px solid var(--accent);
+        padding-left: 20px;
+        margin: 24px 0;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .article-read .content ul,
+      .article-read .content ol { padding-left: 24px; margin: 0 0 20px; }
+      .article-read .content li { margin-bottom: 8px; }
+      .article-read .empty {
+        text-align: center;
+        padding: 80px 0;
+        color: #6b7a8d;
+        font-family: var(--font-body);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+      <div class="container">
+        <a href="/" class="navbar-logo">
+          <img src="/ION.png" alt="ION" />
+        </a>
+        <div class="navbar-links">
+          <a href="/#approach">Approach</a>
+          <a href="/#philosophy">Philosophy</a>
+          <a href="/#team">Team</a>
+          <a href="/articles.html" class="active">Journals</a>
+          <a href="/#contact">Contact</a>
+        </div>
+        <div class="magnetic">
+          <a href="/#contact" class="navbar-cta">Book Consultation</a>
+        </div>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav">
+      <a href="/#approach">Approach</a>
+      <a href="/#philosophy">Philosophy</a>
+      <a href="/#team">Team</a>
+      <a href="/articles.html">Journals</a>
+      <a href="/#contact">Contact</a>
+    </div>
+
+    <main style="padding-top: 80px;">
+      <article class="article-read container" id="article-root">
+        <div class="empty">Loading article...</div>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/ION.png" alt="ION" />
+          </div>
+          <p class="tagline">ION — Advancing Nervous System Regulation</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">NAVIGATION</div>
+          <ul>
+            <li><a href="/#approach">Approach</a></li>
+            <li><a href="/#philosophy">Philosophy</a></li>
+            <li><a href="/#team">Team</a></li>
+            <li><a href="/articles.html">Journals</a></li>
+            <li><a href="/#contact">Bookings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">CONNECT</div>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-label">LEGAL</div>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> ION Neuroscience. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Hamburger menu
+      const hamburger = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          mobileNav.classList.toggle('open');
+        });
+        mobileNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+          });
+        });
+      }
+
+      // Load article
+      (async () => {
+        const root = document.getElementById('article-root');
+        const id = new URLSearchParams(location.search).get('id');
+
+        if (!id) {
+          root.innerHTML = '<div class="empty">No article specified. <a href="/articles.html" style="color:var(--accent);">View all journals &rarr;</a></div>';
+          return;
+        }
+
+        try {
+          const res = await fetch(`/api/articles/${encodeURIComponent(id)}`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const article = await res.json();
+
+          if (article.is_external && article.external_url) {
+            location.replace(article.external_url);
+            return;
+          }
+
+          document.title = `${article.title} — ION Neuroscience`;
+
+          const date = article.created_at
+            ? new Date(article.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+            : '';
+
+          root.innerHTML = `
+            <a href="/articles.html" class="back-link">&larr; Back to journals</a>
+            <span class="category">${escText(article.category)}</span>
+            <h1>${escText(article.title)}</h1>
+            ${date ? `<div class="meta">${date}</div>` : ''}
+            ${article.summary ? `<div class="summary">${escText(article.summary)}</div>` : ''}
+            <div class="content">${article.content || ''}</div>
+          `;
+        } catch {
+          root.innerHTML = '<div class="empty">Unable to load article. <a href="/articles.html" style="color:var(--accent);">View all journals &rarr;</a></div>';
+        }
+
+        function escText(str) {
+          const el = document.createElement('span');
+          el.textContent = str || '';
+          return el.innerHTML;
+        }
+      })();
+    </script>
+  </body>
+</html>

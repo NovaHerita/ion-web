@@ -18,7 +18,9 @@
       ...options,
     });
     if (res.status === 401) { logout(); throw new Error('Unauthorized'); }
-    return res.json();
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
   }
 
   function $(sel) { return document.querySelector(sel); }
@@ -159,14 +161,20 @@
   });
 
   window.editArticle = async (id) => {
-    const article = await api(`/articles/${id}`);
+    let article;
+    try {
+      article = await api(`/articles/${id}`);
+    } catch (err) {
+      alert(`Could not load article: ${err.message}`);
+      return;
+    }
     $('#article-modal-title').textContent = 'Edit Article';
     $('#article-id').value = article.id;
-    $('#article-title').value = article.title;
-    $('#article-category').value = article.category;
-    $('#article-summary').value = article.summary;
-    $('#article-content').value = article.content;
-    $('#article-url').value = article.external_url;
+    $('#article-title').value = article.title || '';
+    $('#article-category').value = article.category || 'RESEARCH';
+    $('#article-summary').value = article.summary || '';
+    $('#article-content').value = article.content || '';
+    $('#article-url').value = article.external_url || '';
     $('#article-published').checked = !!article.published;
     setArticleType(article.is_external ? 'external' : 'custom');
     $('#article-modal').classList.add('open');
@@ -193,10 +201,15 @@
       published: $('#article-published').checked,
     });
 
-    if (id) {
-      await api(`/articles/${id}`, { method: 'PUT', body });
-    } else {
-      await api('/articles', { method: 'POST', body });
+    try {
+      if (id) {
+        await api(`/articles/${id}`, { method: 'PUT', body });
+      } else {
+        await api('/articles', { method: 'POST', body });
+      }
+    } catch (err) {
+      alert(`Could not save article: ${err.message}`);
+      return;
     }
 
     $('#article-modal').classList.remove('open');
@@ -276,13 +289,19 @@
   });
 
   window.editVideo = async (id) => {
-    const videos = await api('/videos/all');
+    let videos;
+    try {
+      videos = await api('/videos/all');
+    } catch (err) {
+      alert(`Could not load video: ${err.message}`);
+      return;
+    }
     const video = videos.find((v) => v.id === id);
-    if (!video) return;
+    if (!video) { alert('Video not found'); return; }
 
     $('#video-modal-title').textContent = 'Edit Video';
     $('#video-id').value = video.id;
-    $('#video-title').value = video.title;
+    $('#video-title').value = video.title || '';
     $('#video-description').value = video.description || '';
     $('#video-url').value = video.video_url || '';
     $('#video-thumbnail').value = video.thumbnail_url || '';

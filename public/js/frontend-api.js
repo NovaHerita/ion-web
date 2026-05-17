@@ -111,14 +111,20 @@
 
       if (!articles.length) return; // Keep static content if no API articles
 
-      grid.innerHTML = articles.slice(0, 3).map((a) => `
+      grid.innerHTML = articles.slice(0, 3).map((a) => {
+        const href = a.is_external
+          ? escHtml(a.external_url)
+          : `/article.html?id=${encodeURIComponent(a.id)}`;
+        const target = a.is_external ? 'target="_blank" rel="noopener"' : '';
+        return `
         <div class="card journal-card is-visible" style="opacity:1;transform:none;">
           <span class="category">${escHtml(a.category)}</span>
           <h3>${escHtml(a.title)}</h3>
           <p class="summary">${escHtml(a.summary)}</p>
-          <a href="${a.is_external ? escHtml(a.external_url) : '#'}" class="read-link" ${a.is_external ? 'target="_blank" rel="noopener"' : ''}>Read here &rarr;</a>
+          <a href="${href}" class="read-link" ${target}>Read here &rarr;</a>
         </div>
-      `).join('');
+      `;
+      }).join('');
     } catch {
       // API not available — keep static content
     }

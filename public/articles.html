@@ -137,7 +137,7 @@
           }
 
           grid.innerHTML = articles.map((a) => {
-            const href = a.is_external ? a.external_url : '#';
+            const href = a.is_external ? a.external_url : `/article.html?id=${encodeURIComponent(a.id)}`;
             const target = a.is_external ? ' target="_blank" rel="noopener"' : '';
 
             return `
