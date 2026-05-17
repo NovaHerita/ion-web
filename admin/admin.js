@@ -197,8 +197,6 @@
     }
   });
 
-  $('#article-image').addEventListener('input', () => updateImagePreview($('#article-image').value));
-
   $('#article-image-clear').addEventListener('click', () => {
     $('#article-image').value = '';
     updateImagePreview('');
