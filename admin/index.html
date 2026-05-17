@@ -6,7 +6,9 @@
   <title>ION — Admin Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
   <link rel="stylesheet" href="admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 </head>
 <body>
   <!-- Login Screen -->
@@ -109,8 +111,9 @@
               <div id="article-image-status" style="font-size:12px;color:#6b7a8d;margin-top:8px;"></div>
             </div>
             <div class="form-group" id="article-content-group">
-              <label for="article-content">Content (HTML supported)</label>
-              <textarea id="article-content" rows="10"></textarea>
+              <label>Content</label>
+              <div id="article-content-editor" style="background:white;min-height:300px;"></div>
+              <input type="hidden" id="article-content" />
             </div>
             <div class="form-group hidden" id="article-url-group">
               <label for="article-url">External URL</label>

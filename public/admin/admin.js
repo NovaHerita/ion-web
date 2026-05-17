@@ -94,6 +94,31 @@
   // ——— ARTICLES ———
   let cachedArticles = [];
 
+  const articleEditor = new Quill('#article-content-editor', {
+    theme: 'snow',
+    placeholder: 'Write your article...',
+    modules: {
+      toolbar: [
+        [{ header: [2, 3, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ color: [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['blockquote', 'link'],
+        ['clean'],
+      ],
+    },
+  });
+
+  function setEditorContent(html) {
+    articleEditor.setText('');
+    if (html) articleEditor.clipboard.dangerouslyPasteHTML(0, html);
+  }
+
+  function getEditorContent() {
+    const html = articleEditor.root.innerHTML;
+    return html === '<p><br></p>' ? '' : html;
+  }
+
   async function loadArticles() {
     cachedArticles = await api('/articles/all');
     const list = $('#articles-list');
@@ -148,6 +173,7 @@
     $('#article-published').checked = true;
     updateImagePreview('');
     $('#article-image-status').textContent = '';
+    setEditorContent('');
     setArticleType('custom');
     $('#article-modal').classList.add('open');
   });
@@ -229,7 +255,7 @@
     $('#article-image').value = article.image_url || '';
     updateImagePreview(article.image_url || '');
     $('#article-image-status').textContent = '';
-    $('#article-content').value = article.content || '';
+    setEditorContent(article.content || '');
     $('#article-url').value = article.external_url || '';
     $('#article-published').checked = !!article.published;
     setArticleType(article.is_external ? 'external' : 'custom');
@@ -252,7 +278,7 @@
       category: $('#article-category').value,
       summary: $('#article-summary').value,
       image_url: $('#article-image').value,
-      content: $('#article-content').value,
+      content: getEditorContent(),
       external_url: $('#article-url').value,
       is_external: isExternal,
       published: $('#article-published').checked,
