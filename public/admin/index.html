@@ -97,8 +97,16 @@
               <textarea id="article-summary" rows="3"></textarea>
             </div>
             <div class="form-group">
-              <label for="article-image">Hero Image URL (optional)</label>
-              <input type="url" id="article-image" placeholder="https://..." />
+              <label>Hero Image (optional)</label>
+              <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+                <input type="file" id="article-image-file" accept="image/*" style="flex:1;" />
+                <button type="button" id="article-image-clear" class="btn-secondary" style="padding:6px 12px;">Clear</button>
+              </div>
+              <input type="url" id="article-image" placeholder="…or paste an image URL" />
+              <div id="article-image-preview-wrap" style="margin-top:12px;display:none;">
+                <img id="article-image-preview" alt="Preview" style="max-width:100%;max-height:200px;border-radius:6px;display:block;" />
+              </div>
+              <div id="article-image-status" style="font-size:12px;color:#6b7a8d;margin-top:8px;"></div>
             </div>
             <div class="form-group" id="article-content-group">
               <label for="article-content">Content (HTML supported)</label>

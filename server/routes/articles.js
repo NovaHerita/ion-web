@@ -89,6 +89,31 @@ router.put('/:id', requireAuth, async (req, res) => {
   res.json(data);
 });
 
+// POST /api/articles/upload-image — admin (base64 -> Supabase Storage)
+router.post('/upload-image', requireAuth, async (req, res) => {
+  const { filename, data, mimeType } = req.body || {};
+  if (!filename || !data) return res.status(400).json({ error: 'filename and data required' });
+
+  const buffer = Buffer.from(data, 'base64');
+  const ext = (filename.split('.').pop() || 'jpg').toLowerCase();
+  const objectName = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}.${ext}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from('article-images')
+    .upload(objectName, buffer, {
+      contentType: mimeType || 'image/jpeg',
+      cacheControl: '31536000',
+    });
+
+  if (uploadError) return res.status(500).json({ error: uploadError.message });
+
+  const { data: { publicUrl } } = supabase.storage
+    .from('article-images')
+    .getPublicUrl(objectName);
+
+  res.json({ url: publicUrl });
+});
+
 // PUT /api/articles/reorder — admin (accepts array of {id, sort_order})
 router.put('/reorder', requireAuth, async (req, res) => {
   const { order } = req.body;

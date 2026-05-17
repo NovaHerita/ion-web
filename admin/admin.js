@@ -146,8 +146,63 @@
     $('#article-form').reset();
     $('#article-id').value = '';
     $('#article-published').checked = true;
+    updateImagePreview('');
+    $('#article-image-status').textContent = '';
     setArticleType('custom');
     $('#article-modal').classList.add('open');
+  });
+
+  function updateImagePreview(url) {
+    const wrap = $('#article-image-preview-wrap');
+    const img = $('#article-image-preview');
+    if (url) {
+      img.src = url;
+      wrap.style.display = 'block';
+    } else {
+      img.removeAttribute('src');
+      wrap.style.display = 'none';
+    }
+  }
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result).split(',')[1] || '');
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  $('#article-image-file').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const status = $('#article-image-status');
+    status.style.color = '#6b7a8d';
+    status.textContent = 'Uploading...';
+    try {
+      const base64 = await fileToBase64(file);
+      const { url } = await api('/articles/upload-image', {
+        method: 'POST',
+        body: JSON.stringify({ filename: file.name, data: base64, mimeType: file.type }),
+      });
+      $('#article-image').value = url;
+      updateImagePreview(url);
+      status.style.color = '#2d8a4e';
+      status.textContent = 'Uploaded.';
+    } catch (err) {
+      status.style.color = '#c0564a';
+      status.textContent = `Upload failed: ${err.message}`;
+    } finally {
+      e.target.value = '';
+    }
+  });
+
+  $('#article-image').addEventListener('input', () => updateImagePreview($('#article-image').value));
+
+  $('#article-image-clear').addEventListener('click', () => {
+    $('#article-image').value = '';
+    updateImagePreview('');
+    $('#article-image-status').textContent = '';
   });
 
   function setArticleType(type) {
@@ -174,6 +229,8 @@
     $('#article-category').value = article.category || 'RESEARCH';
     $('#article-summary').value = article.summary || '';
     $('#article-image').value = article.image_url || '';
+    updateImagePreview(article.image_url || '');
+    $('#article-image-status').textContent = '';
     $('#article-content').value = article.content || '';
     $('#article-url').value = article.external_url || '';
     $('#article-published').checked = !!article.published;
