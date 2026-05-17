@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   if (route === '' && req.method === 'GET') {
     const { data, error } = await supabase
       .from('articles')
-      .select('id, title, category, summary, content, external_url, is_external, sort_order, created_at')
+      .select('id, title, category, summary, image_url, content, external_url, is_external, sort_order, created_at')
       .eq('published', true)
       .order('sort_order', { ascending: true })
       .order('created_at', { ascending: false });
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
   if (route === '' && req.method === 'POST') {
     if (!(await requireAuth(req, res))) return;
 
-    const { title, category, summary, content, external_url, is_external, published } = req.body || {};
+    const { title, category, summary, image_url, content, external_url, is_external, published } = req.body || {};
 
     const { data, error } = await supabase
       .from('articles')
@@ -35,6 +35,7 @@ export default async function handler(req, res) {
         title,
         category: category || 'INSIGHT',
         summary: summary || '',
+        image_url: image_url || '',
         content: content || '',
         external_url: external_url || '',
         is_external: is_external ? true : false,
@@ -96,7 +97,7 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     if (!(await requireAuth(req, res))) return;
 
-    const { title, category, summary, content, external_url, is_external, published } = req.body || {};
+    const { title, category, summary, image_url, content, external_url, is_external, published } = req.body || {};
 
     const { data, error } = await supabase
       .from('articles')
@@ -104,6 +105,7 @@ export default async function handler(req, res) {
         title,
         category,
         summary,
+        image_url: image_url || '',
         content,
         external_url,
         is_external: is_external ? true : false,

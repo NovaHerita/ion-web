@@ -23,6 +23,18 @@
         transition: gap 0.3s var(--ease-out-expo);
       }
       .article-read .back-link:hover { gap: 10px; }
+      .article-read .hero {
+        width: 100%;
+        margin: 0 0 40px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f0f3f6;
+      }
+      .article-read .hero img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
       .article-read .category {
         font-family: var(--font-body);
         font-size: 11px;
@@ -218,6 +230,7 @@
 
           root.innerHTML = `
             <a href="/articles.html" class="back-link">&larr; Back to journals</a>
+            ${article.image_url ? `<div class="hero"><img src="${escText(article.image_url)}" alt="${escText(article.title)}" /></div>` : ''}
             <span class="category">${escText(article.category)}</span>
             <h1>${escText(article.title)}</h1>
             ${date ? `<div class="meta">${date}</div>` : ''}

@@ -8,7 +8,7 @@ const router = Router();
 router.get('/', async (req, res) => {
   const { data, error } = await supabase
     .from('articles')
-    .select('id, title, category, summary, content, external_url, is_external, sort_order, created_at')
+    .select('id, title, category, summary, image_url, content, external_url, is_external, sort_order, created_at')
     .eq('published', true)
     .order('sort_order', { ascending: true })
     .order('created_at', { ascending: false });
@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
 
 // POST /api/articles — admin
 router.post('/', requireAuth, async (req, res) => {
-  const { title, category, summary, content, external_url, is_external, published } = req.body;
+  const { title, category, summary, image_url, content, external_url, is_external, published } = req.body;
 
   const { data, error } = await supabase
     .from('articles')
@@ -51,6 +51,7 @@ router.post('/', requireAuth, async (req, res) => {
       title,
       category: category || 'INSIGHT',
       summary: summary || '',
+      image_url: image_url || '',
       content: content || '',
       external_url: external_url || '',
       is_external: is_external ? true : false,
@@ -65,7 +66,7 @@ router.post('/', requireAuth, async (req, res) => {
 
 // PUT /api/articles/:id — admin
 router.put('/:id', requireAuth, async (req, res) => {
-  const { title, category, summary, content, external_url, is_external, published } = req.body;
+  const { title, category, summary, image_url, content, external_url, is_external, published } = req.body;
 
   const { data, error } = await supabase
     .from('articles')
@@ -73,6 +74,7 @@ router.put('/:id', requireAuth, async (req, res) => {
       title,
       category,
       summary,
+      image_url: image_url || '',
       content,
       external_url,
       is_external: is_external ? true : false,

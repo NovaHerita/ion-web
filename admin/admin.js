@@ -173,6 +173,7 @@
     $('#article-title').value = article.title || '';
     $('#article-category').value = article.category || 'RESEARCH';
     $('#article-summary').value = article.summary || '';
+    $('#article-image').value = article.image_url || '';
     $('#article-content').value = article.content || '';
     $('#article-url').value = article.external_url || '';
     $('#article-published').checked = !!article.published;
@@ -195,6 +196,7 @@
       title: $('#article-title').value,
       category: $('#article-category').value,
       summary: $('#article-summary').value,
+      image_url: $('#article-image').value,
       content: $('#article-content').value,
       external_url: $('#article-url').value,
       is_external: isExternal,
