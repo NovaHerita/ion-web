@@ -44,7 +44,7 @@
         </div>
 
         <div class="magnetic">
-          <a href="#contact" class="navbar-cta">Book Consultation</a>
+          <a href="#contact" class="navbar-cta js-consult-trigger">Book Consultation</a>
         </div>
 
         <button class="hamburger" aria-label="Toggle menu">
@@ -63,7 +63,7 @@
       <a href="#journals">Journals</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-dark" style="margin-top:16px;font-size:16px;">Book Consultation</a>
+      <a href="#contact" class="btn-dark js-consult-trigger" style="margin-top:16px;font-size:16px;">Book Consultation</a>
     </div>
 
     <main id="top">
@@ -814,6 +814,39 @@
         </div>
       </section>
 
+      <!-- Consultation enquiry modal -->
+      <div class="consent-modal" id="consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-title" aria-hidden="true">
+        <div class="consent-modal-card is-wide">
+          <h3 id="consult-title">Book a consultation</h3>
+          <p>Tell us a little about yourself and we'll be in touch to arrange your complimentary 30-minute consultation.</p>
+          <form id="consult-form" class="consult-form">
+            <div class="row">
+              <div>
+                <label for="consult-first">First name</label>
+                <input type="text" id="consult-first" name="firstName" required autocomplete="given-name" />
+              </div>
+              <div>
+                <label for="consult-last">Last name</label>
+                <input type="text" id="consult-last" name="lastName" required autocomplete="family-name" />
+              </div>
+            </div>
+            <div>
+              <label for="consult-email">Email</label>
+              <input type="email" id="consult-email" name="email" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="consult-enquiry">Your enquiry</label>
+              <textarea id="consult-enquiry" name="enquiry" required placeholder="What brings you here? Any questions for us?"></textarea>
+            </div>
+          </form>
+          <p id="consult-status" class="consult-status"></p>
+          <div class="consent-modal-actions">
+            <button type="button" class="consent-cancel" id="consult-cancel">Cancel</button>
+            <button type="button" class="consent-confirm" id="consult-submit">Send enquiry</button>
+          </div>
+        </div>
+      </div>
+
       <!-- GDPR consent modal for newsletter -->
       <div class="consent-modal" id="consent-modal" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-hidden="true">
         <div class="consent-modal-card">
@@ -872,7 +905,7 @@
               <span class="op-label">OPERATING DAYS</span>
               <span class="op-value">Mon &middot; Wed &middot; Fri, 8 AM – 7 PM</span>
             </div>
-            <div class="magnetic"><a href="#" class="btn-dark" style="width:100%;text-align:center;">Schedule Consultation</a></div>
+            <div class="magnetic"><a href="#" class="btn-dark js-consult-trigger" style="width:100%;text-align:center;">Schedule Consultation</a></div>
           </div>
         </div>
       </section>

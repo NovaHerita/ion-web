@@ -3074,6 +3074,49 @@ h1, h2, h3, h4 {
   cursor: not-allowed;
 }
 
+/* Consultation enquiry modal */
+.consent-modal .consent-modal-card.is-wide { max-width: 560px; }
+
+.consult-form { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.consult-form .row { display: flex; gap: 12px; }
+.consult-form .row > * { flex: 1; }
+.consult-form label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.consult-form input,
+.consult-form textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid rgba(13, 27, 42, 0.1);
+  border-radius: 8px;
+  padding: 12px 14px;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+.consult-form input:focus,
+.consult-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--card-bg);
+}
+.consult-form textarea { resize: vertical; min-height: 110px; font-family: var(--font-body); }
+.consult-status { font-family: var(--font-body); font-size: 13px; min-height: 18px; margin-bottom: 12px; }
+.consult-status.error { color: #c0564a; }
+.consult-status.success { color: #2d8a4e; }
+
+@media (max-width: 480px) {
+  .consult-form .row { flex-direction: column; }
+}
+
 @media (max-width: 480px) {
   .consent-modal-card { padding: 28px 24px; }
   .consent-modal-card h3 { font-size: 20px; }

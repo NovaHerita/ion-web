@@ -100,6 +100,84 @@
     });
   }
 
+  // ——— Consultation Enquiry Modal ———
+  const consultModal = document.getElementById('consult-modal');
+  const consultForm = document.getElementById('consult-form');
+  const consultStatus = document.getElementById('consult-status');
+  const consultSubmit = document.getElementById('consult-submit');
+  const consultCancel = document.getElementById('consult-cancel');
+
+  function openConsultModal() {
+    if (!consultModal) return;
+    consultModal.classList.add('is-open');
+    consultModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    consultStatus.textContent = '';
+    consultStatus.className = 'consult-status';
+    setTimeout(() => document.getElementById('consult-first')?.focus(), 50);
+  }
+
+  function closeConsultModal() {
+    if (!consultModal) return;
+    consultModal.classList.remove('is-open');
+    consultModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.js-consult-trigger').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openConsultModal();
+    });
+  });
+
+  if (consultCancel) consultCancel.addEventListener('click', closeConsultModal);
+  if (consultModal) {
+    consultModal.addEventListener('click', (e) => {
+      if (e.target === consultModal) closeConsultModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && consultModal.classList.contains('is-open')) closeConsultModal();
+    });
+  }
+
+  if (consultSubmit && consultForm) {
+    consultSubmit.addEventListener('click', async () => {
+      if (!consultForm.reportValidity()) return;
+
+      const payload = {
+        firstName: document.getElementById('consult-first').value.trim(),
+        lastName: document.getElementById('consult-last').value.trim(),
+        email: document.getElementById('consult-email').value.trim(),
+        enquiry: document.getElementById('consult-enquiry').value.trim(),
+      };
+
+      consultSubmit.disabled = true;
+      consultStatus.textContent = 'Sending...';
+      consultStatus.className = 'consult-status';
+
+      try {
+        const res = await fetch(`${API}/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
+
+        consultStatus.textContent = 'Thanks — your enquiry has been sent. We’ll be in touch shortly.';
+        consultStatus.className = 'consult-status success';
+        consultForm.reset();
+        setTimeout(closeConsultModal, 2200);
+      } catch (err) {
+        consultStatus.textContent = err.message || 'Could not send your enquiry. Please try again.';
+        consultStatus.className = 'consult-status error';
+      } finally {
+        consultSubmit.disabled = false;
+      }
+    });
+  }
+
   // ——— Load Articles ———
   async function loadArticles() {
     const grid = document.querySelector('.journals-grid');
