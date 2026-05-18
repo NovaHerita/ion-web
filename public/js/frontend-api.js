@@ -142,39 +142,24 @@
   }
 
   if (consultSubmit && consultForm) {
-    consultSubmit.addEventListener('click', async () => {
+    consultSubmit.addEventListener('click', () => {
       if (!consultForm.reportValidity()) return;
 
-      const payload = {
-        firstName: document.getElementById('consult-first').value.trim(),
-        lastName: document.getElementById('consult-last').value.trim(),
-        email: document.getElementById('consult-email').value.trim(),
-        enquiry: document.getElementById('consult-enquiry').value.trim(),
-      };
+      const firstName = document.getElementById('consult-first').value.trim();
+      const lastName = document.getElementById('consult-last').value.trim();
+      const email = document.getElementById('consult-email').value.trim();
+      const enquiry = document.getElementById('consult-enquiry').value.trim();
 
-      consultSubmit.disabled = true;
-      consultStatus.textContent = 'Sending...';
-      consultStatus.className = 'consult-status';
+      const fullName = `${firstName} ${lastName}`.trim();
+      const subject = `Consultation enquiry from ${fullName}`;
+      const body = `Name: ${fullName}\nEmail: ${email}\n\nEnquiry:\n${enquiry}\n`;
+      const mailto = `mailto:benjamin@ionbiofeedback.com,kasia@ionbiofeedback.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      try {
-        const res = await fetch(`${API}/contact`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
+      window.location.href = mailto;
 
-        consultStatus.textContent = 'Thanks — your enquiry has been sent. We’ll be in touch shortly.';
-        consultStatus.className = 'consult-status success';
-        consultForm.reset();
-        setTimeout(closeConsultModal, 2200);
-      } catch (err) {
-        consultStatus.textContent = err.message || 'Could not send your enquiry. Please try again.';
-        consultStatus.className = 'consult-status error';
-      } finally {
-        consultSubmit.disabled = false;
-      }
+      consultStatus.textContent = 'Opening your email app...';
+      consultStatus.className = 'consult-status success';
+      setTimeout(closeConsultModal, 1500);
     });
   }
 

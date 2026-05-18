@@ -9,7 +9,6 @@ import articleRoutes from './routes/articles.js';
 import videoRoutes from './routes/videos.js';
 import subscriberRoutes from './routes/subscribers.js';
 import newsletterRoutes from './routes/newsletter.js';
-import contactRoutes from './routes/contact.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -31,7 +30,6 @@ app.use('/api/articles', articleRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/newsletter', newsletterRoutes);
-app.use('/api/contact', contactRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
