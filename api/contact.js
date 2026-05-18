@@ -76,7 +76,9 @@ export default async function handler(req, res) {
     .filter(Boolean);
 
   if (failures.length === RECIPIENTS.length) {
-    return res.status(500).json({ error: 'Could not send your enquiry. Please try again later.' });
+    console.error('[contact] all sends failed', failures);
+    const detail = failures[0]?.error || 'unknown error';
+    return res.status(500).json({ error: `Could not send your enquiry: ${detail}` });
   }
 
   return res.json({ success: true, failures: failures.length ? failures : undefined });
